@@ -1,54 +1,56 @@
 # wx86
 
-**wx86** is a pure Python emulator of the original **IBM PC 5150**, featuring a software implementation of the **Intel 8088** processor.
+**wx86** is a pure Python emulator of the original **IBM PC 5150**, featuring a software implementation of the **Intel 8086/8088** processor.
 
 The goal of the project is to accurately emulate the original IBM PC hardware and eventually boot and run **MS-DOS** and other real-mode software.
 
-> **Project Status:** Work in Progress
+> **Status:** Active Development
 
 ---
 
 ## Features
 
-- Intel 8088 CPU emulator
-- 20-bit segmented memory model (1 MB)
-- IBM PC 5150 machine architecture
-- Floppy disk image loading
-- Pure Python implementation
-- Designed to run with **PyPy** for improved performance
+* Intel **8086/8088** CPU emulation
+* 20-bit segmented memory model (1 MB)
+* IBM PC 5150 hardware emulation
+* Floppy disk image loading
+* Pure Python implementation
+* Optimized to run with **PyPy** for improved performance
 
 ---
 
 ## Current Status
 
-The emulator is still under active development.
+The emulator is under active development.
 
 ### Implemented
 
-- Intel 8088 CPU (work in progress)
-- Memory subsystem
-- Machine framework
-- Floppy image loading
-- Basic emulator window
+* Intel 8086/8088 CPU (work in progress)
+* Segmented memory subsystem
+* Machine framework
+* Floppy disk image loading
+* Emulator window and display
 
 ### Planned
 
-- BIOS ROM support
-- IBM Cassette BASIC support
-- CGA video adapter
-- Keyboard controller
-- PIT (8253)
-- PIC (8259)
-- DMA controller (8237)
-- BIOS interrupts
-- MS-DOS boot support
+* Complete 8086/8088 instruction set
+* BIOS ROM execution
+* IBM Cassette BASIC support
+* CGA video adapter
+* Intel 8253 Programmable Interval Timer (PIT)
+* Intel 8259 Programmable Interrupt Controller (PIC)
+* Intel 8237 DMA Controller
+* Keyboard controller
+* BIOS interrupt services
+* MS-DOS boot support
+* DOS application compatibility
 
 ---
 
 ## Requirements
 
-- **PyPy 3.11** (recommended)
-- pygame-ce
+* **PyPy 3.11** (recommended)
+* pygame-ce
 
 Install dependencies:
 
@@ -66,18 +68,18 @@ pypy wx86.py
 
 ## Why PyPy?
 
-The emulator executes millions of CPU instructions in Python.
+Emulating an x86 processor requires executing millions of Python operations per second.
 
-Running under **PyPy** provides significantly better performance than standard CPython thanks to its Just-In-Time (JIT) compiler.
+Running under **PyPy** provides a significant performance improvement over standard CPython thanks to its Just-In-Time (JIT) compiler, making the emulator considerably faster.
 
 ---
 
 ## Repository Layout
 
-```
+```text
 wx86-MS-DOS/
 │
-├── cpu.py             # Intel 8088 CPU
+├── cpu.py             # Intel 8086/8088 CPU
 ├── machine.py         # IBM PC machine implementation
 ├── wx86.py            # Emulator entry point
 ├── requirements.txt
@@ -87,27 +89,28 @@ wx86-MS-DOS/
 
 ---
 
-## BIOS & Disk Images
+## BIOS ROMs & Disk Images
 
-This repository **does not include IBM BIOS ROMs or MS-DOS disk images**.
+This repository **does not include IBM BIOS ROMs, IBM Cassette BASIC ROMs, or MS-DOS disk images**.
 
-To run the emulator, users should obtain compatible BIOS ROMs and DOS boot disks separately and place them in the appropriate directories.
+Users should obtain compatible ROMs and operating system disk images separately.
 
 ---
 
 ## Roadmap
 
-- [ ] Complete 8088 instruction set
-- [ ] Accurate FLAGS behavior
-- [ ] BIOS ROM execution
-- [ ] Boot sector execution
-- [ ] INT 13h disk services
-- [ ] CGA graphics
-- [ ] PIT timer
-- [ ] PIC interrupt controller
-- [ ] Keyboard input
-- [ ] Boot MS-DOS 3.x
-- [ ] Run DOS applications
+* [ ] Complete 8086/8088 instruction set
+* [ ] Accurate FLAGS emulation
+* [ ] Prefetch queue emulation
+* [ ] BIOS POST
+* [ ] Boot sector execution
+* [ ] INT 13h disk services
+* [ ] CGA text mode
+* [ ] Keyboard support
+* [ ] PIT timer
+* [ ] PIC interrupt controller
+* [ ] Boot MS-DOS
+* [ ] Run DOS applications
 
 ---
 
@@ -119,9 +122,9 @@ To run the emulator, users should obtain compatible BIOS ROMs and DOS boot disks
 
 ## Contributing
 
-Contributions, bug reports, and suggestions are welcome.
+Bug reports, suggestions, and pull requests are welcome.
 
-Feel free to open an Issue or submit a Pull Request.
+If you're interested in x86 emulation, retro computing, or IBM PC hardware, feel free to contribute.
 
 ---
 
